@@ -1,3 +1,4 @@
+import StyledComponentsRegistry from '@/lib/registry'
 import { Saira } from 'next/font/google'
 import Header from './components/Header'
 import './globals.css'
@@ -20,8 +21,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={saira.className}>
-        <Header />
-        {children}
+        <StyledComponentsRegistry>
+          <Header />
+          {children}
+        </StyledComponentsRegistry>
       </body>
     </html>
   )
