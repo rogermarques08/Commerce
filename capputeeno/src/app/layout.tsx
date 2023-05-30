@@ -1,6 +1,7 @@
+import FilterProvider from '@/context/FilterContext'
 import StyledComponentsRegistry from '@/lib/registry'
 import { Saira } from 'next/font/google'
-import Header from './components/Header'
+import Header from '../components/Header'
 import './globals.css'
 
 const saira = Saira({
@@ -21,10 +22,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={saira.className}>
-        <StyledComponentsRegistry>
-          <Header />
-          {children}
-        </StyledComponentsRegistry>
+        <FilterProvider>
+          <StyledComponentsRegistry>
+            <Header />
+            {children}
+          </StyledComponentsRegistry>
+        </FilterProvider>
       </body>
     </html>
   )

@@ -33,7 +33,7 @@ const Logo = styled.a`
     text-decoration: none;
 
 `
-const Teste = styled.div`
+const SearchInputAndBagConatiner = styled.div`
     display: flex;
     gap: 20px;
 `
@@ -42,10 +42,10 @@ export default function Header() {
     return (
         <TagHeader>
             <Logo href='/' className={sairaStencil.className}>capputeeno</Logo>
-            <Teste>
+            <SearchInputAndBagConatiner>
                 <SearchBar />
                 <Bag />
-            </Teste>
+            </SearchInputAndBagConatiner>
         </TagHeader>
     )
 }
