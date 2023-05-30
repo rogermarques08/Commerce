@@ -1,4 +1,5 @@
 import { Saira } from 'next/font/google'
+import Header from './components/Header'
 import './globals.css'
 
 const saira = Saira({
@@ -18,7 +19,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={saira.className}>{children}</body>
+      <body className={saira.className}>
+        <Header />
+        {children}
+      </body>
     </html>
   )
 }
