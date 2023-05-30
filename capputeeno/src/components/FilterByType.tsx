@@ -19,12 +19,18 @@ const ListItem = styled.li<SelectedProps>`
     font-size: 16px;
     line-height: 22px;
     cursor: pointer;
+    width: max-content;
     
     border-bottom: ${props => props.selected ? '4px solid var(--orange-low)' : ''};
     color: ${props => props.selected ? 'var(--selected-color)' : 'var(--text-dark)'};
     font-weight: ${props => props.selected ? '600' : '400'};
 
     transition: all 0.1s;
+
+    @media (max-width: 450px) {
+    font-size: 11px;
+
+  }
 `
 
 export default function FilterByType() {
