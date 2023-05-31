@@ -1,4 +1,3 @@
-'use client'
 import data from "@/data/db"
 import styled from "styled-components"
 import { ProductCard } from "./ProductCard"

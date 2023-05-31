@@ -1,5 +1,3 @@
-'use client'
-
 import { FilterContext } from "@/context/FilterContext"
 import { FilterType } from "@/types/FilterType"
 import { useContext } from "react"
