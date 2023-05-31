@@ -11,6 +11,7 @@ const FiltersContainer = styled.section`
     align-items: baseline;
     gap: 10px;
     width: 100%;
+    padding: 34px 160px;
 
     @media (max-width: 860px) {
         justify-content: center;
