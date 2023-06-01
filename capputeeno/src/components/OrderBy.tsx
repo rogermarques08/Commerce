@@ -22,6 +22,7 @@ const OrderButton = styled.button`
     line-height: 22px;
     display: flex;
     align-items: center;
+    cursor: pointer;
     gap: 10px;
     width: 121px;
     height: 24px;

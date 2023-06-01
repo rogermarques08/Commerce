@@ -8,16 +8,20 @@ interface Children {
     children: ReactNode
 }
 
+
 export const FilterContext = createContext({
     type: FilterType.ALL,
     setType: (type: FilterType) => { },
     order: OrderType.NEW,
-    setOrder: (order: OrderType) => { }
+    setOrder: (order: OrderType) => { },
+    search: '',
+    setSearch: (search: string) => {}
 })
 
 export default function FilterProvider({ children }: Children) {
     const [type, setType] = useState(FilterType.ALL)
     const [order, setOrder] = useState(OrderType.NEW)
+    const [search, setSearch] = useState('')
 
     return (
         <FilterContext.Provider
@@ -26,7 +30,9 @@ export default function FilterProvider({ children }: Children) {
                     type,
                     setType,
                     order,
-                    setOrder
+                    setOrder,
+                    search,
+                    setSearch
                 }
             }
         >

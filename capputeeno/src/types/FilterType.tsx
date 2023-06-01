@@ -1,5 +1,5 @@
 export enum FilterType{
     'ALL',
-    'SHIRT',
-    'MUG'
+    'T-SHIRTS',
+    'MUGS'
 }

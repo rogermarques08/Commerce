@@ -32,25 +32,30 @@ const ListItem = styled.li<SelectedProps>`
 `
 
 export default function FilterByType() {
-    const { type, setType } = useContext(FilterContext)
+    const { type, setType, setSearch } = useContext(FilterContext)
+
+    const teste = (type: FilterType) => {
+        setType(type)
+        setSearch('')
+    }
 
     return (
         <FilterList>
             <ListItem
                 selected={type === FilterType.ALL}
-                onClick={() => setType(FilterType.ALL)}
+                onClick={() => teste(FilterType.ALL)}
             >
                 TODOS OS PRODUTOS
             </ListItem>
             <ListItem
-                selected={type === FilterType.SHIRT}
-                onClick={() => setType(FilterType.SHIRT)}
+                selected={type === FilterType["T-SHIRTS"]}
+                onClick={() => teste(FilterType["T-SHIRTS"])}
             >
                 CAMISETAS
             </ListItem>
             <ListItem
-                selected={type === FilterType.MUG}
-                onClick={() => setType(FilterType.MUG)}
+                selected={type === FilterType.MUGS}
+                onClick={() => teste(FilterType.MUGS)}
             >
                 CANECAS
             </ListItem>

@@ -1,3 +1,5 @@
+import { FilterContext } from "@/context/FilterContext";
+import { useContext } from "react";
 import styled from "styled-components";
 import SearchIcon from "./SearchIcon";
 
@@ -30,9 +32,16 @@ const SpanIcon = styled.span`
     margin: 0 16px;
 `
 export default function SearchBar() {
+    const {search, setSearch} = useContext(FilterContext)
+
     return (
         <SearchBarContainer>
-            <SearchInput type="text" placeholder="Procurando por algo específico?" />
+            <SearchInput 
+            type="text" 
+            placeholder="Procurando por algo específico?" 
+            value = {search}
+            onChange={({target: {value}}) => setSearch(value)}
+            />
             <SpanIcon>
                 <SearchIcon />
             </SpanIcon>

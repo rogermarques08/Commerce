@@ -54,16 +54,20 @@ const Card = styled.div`
         color: var(--text-dark-2);
     }
 
-     @media (max-width: 580px) {
+    @media (max-width: 580px) {
         width: 160px;
         height: 245px;
-  }
+    }
 
    
-  @media (max-width: 450px) {
+    @media (max-width: 450px) {
         width: 135px;
         height: 220px;
-  }
+
+        > div > h3 {
+            font-size: 15px;
+        }
+    }
 `
 
 export function ProductCard(product : Product){

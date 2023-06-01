@@ -1,4 +1,4 @@
-import data from "@/data/db"
+import useProducts from "@/hooks/useProducts"
 import styled from "styled-components"
 import { ProductCard } from "./ProductCard"
 
@@ -10,9 +10,12 @@ const List = styled.div`
     
 `
 export function ProductList() {
+    const data = useProducts()
+    
     return (
         <List>
-            {data.allProducts?.map(product =>
+            {!data.length && <h2>Produto não encontrado</h2>}
+            {data?.map(product =>
                 <ProductCard
                     key={product.id}
                     {...product}
