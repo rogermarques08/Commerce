@@ -1,3 +1,4 @@
+import CheckoutProvider from '@/context/CheckoutContext'
 import FilterProvider from '@/context/FilterContext'
 import StyledComponentsRegistry from '@/lib/registry'
 import { Saira } from 'next/font/google'
@@ -23,10 +24,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={saira.className}>
         <FilterProvider>
+          <CheckoutProvider>
           <StyledComponentsRegistry>
             <Header />
             {children}
           </StyledComponentsRegistry>
+          </CheckoutProvider>
         </FilterProvider>
       </body>
     </html>

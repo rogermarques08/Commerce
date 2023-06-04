@@ -8,7 +8,6 @@ interface Children {
     children: ReactNode
 }
 
-
 export const FilterContext = createContext({
     type: FilterType.ALL,
     setType: (type: FilterType) => { },

@@ -1,3 +1,7 @@
+'use-client'
+
+import useLocalStorage from "@/hooks/useLocalStorage";
+import Link from "next/link";
 import styled from "styled-components";
 import BagIcon from "./BagIcon";
 
@@ -18,10 +22,14 @@ const ItemsOnBag = styled.span`
     background-color: var(--exclude-color);
 `
 export default function Bag() {
+    const { cart } = useLocalStorage('user-cart')
+
     return (
         <BagButton>
-            <BagIcon/>
-            <ItemsOnBag>0</ItemsOnBag>
+            <Link href='/checkout'>
+                <BagIcon />
+            </Link>
+            <ItemsOnBag>{cart?.length || 0}</ItemsOnBag>
         </BagButton>
     )
 }

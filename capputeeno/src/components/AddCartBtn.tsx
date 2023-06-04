@@ -1,3 +1,5 @@
+import { Product } from "@/data/Promises";
+import useLocalStorage from "@/hooks/useLocalStorage";
 import styled from "styled-components";
 import BagIconWhite from "./BagIconWhite";
 
@@ -18,9 +20,11 @@ const AddBtn = styled.button`
     background-color: var(--brand-blue);
     border-radius: 4px;
 `
-export default function AddCartBtn() {
+export default function AddCartBtn(product: Product) {
+    const {setLocalStorage} = useLocalStorage('user-cart')
+    
     return (
-        <AddBtn>
+        <AddBtn onClick={() => setLocalStorage(product)}>
             <BagIconWhite />
             Adicionar ao carrinho
         </AddBtn>

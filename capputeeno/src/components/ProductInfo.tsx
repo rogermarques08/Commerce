@@ -48,7 +48,7 @@ export default function ProductInfo (product: Product) {
             <p>*Frete de R$40,00 para todo o Brasil. Grátis para compras acima de R$900,00.</p>
             <h2>DESCRIÇÃO</h2>
             <p>{product.description}</p>
-            <AddCartBtn />
+            <AddCartBtn {...product}/>
         </InfoContainer>
     )
 }

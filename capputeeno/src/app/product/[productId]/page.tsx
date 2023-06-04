@@ -51,7 +51,7 @@ const ProductInfoContainer = styled.div`
 
 export default function Product({ params }: { params: { productId: string } }) {
     const product = getProduct(params.productId)
-
+    
     return (
         <ProductContainer>
             <BackButton />
