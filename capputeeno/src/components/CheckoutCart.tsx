@@ -1,7 +1,7 @@
 import { Product } from "@/data/Promises";
 import Image from "next/image";
 import styled from "styled-components";
-import TrashIcon from "./Emails/TrashIcon";
+import TrashIcon from "../icons/TrashIcon";
 
 const CardConatiner = styled.div`
     display: flex;
@@ -116,7 +116,7 @@ const CardInfo = styled.section`
 export default function CheckoutCard(product: Product) {
     return (
         <CardConatiner>
-            <Image src={product.image_url} alt={product.name} width={256} height={211} style={{borderRadius: '8px 0 0 8px'}}/>
+            <Image src={product.image_url} alt={product.name} width={256} height={211} style={{borderRadius: '8px 0 0 8px'}} />
             <CardInfo>
                 <div>
                     <h2>{product.name}</h2>

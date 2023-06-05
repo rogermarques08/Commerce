@@ -4,7 +4,7 @@ import { FilterContext } from "@/context/FilterContext"
 import { OrderType } from "@/types/OrderType"
 import { useContext, useState } from "react"
 import styled from "styled-components"
-import ArrowIcon from "./ArrowIcon"
+import ArrowIcon from "../icons/ArrowIcon"
 
 const OrderContainer = styled.section`
     display: flex;

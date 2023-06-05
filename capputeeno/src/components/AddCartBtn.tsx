@@ -1,7 +1,7 @@
 import { Product } from "@/data/Promises";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import styled from "styled-components";
-import BagIconWhite from "./BagIconWhite";
+import BagIconWhite from "../icons/BagIconWhite";
 
 const AddBtn = styled.button`
     display: flex;

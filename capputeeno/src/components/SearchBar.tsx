@@ -1,7 +1,7 @@
 import { FilterContext } from "@/context/FilterContext";
 import { useContext } from "react";
 import styled from "styled-components";
-import SearchIcon from "./SearchIcon";
+import SearchIcon from "../icons/SearchIcon";
 
 const SearchBarContainer = styled.div`
     display: flex;

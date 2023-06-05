@@ -3,7 +3,7 @@
 import useLocalStorage from "@/hooks/useLocalStorage";
 import Link from "next/link";
 import styled from "styled-components";
-import BagIcon from "./BagIcon";
+import BagIcon from "../icons/BagIcon";
 
 const BagButton = styled.button`
     background-color: var(--bg-secondary-color);

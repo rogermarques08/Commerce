@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import styled from "styled-components";
-import BackIcon from "./BackIcon";
+import BackIcon from "../icons/BackIcon";
 
 const BackBtn = styled.button`
     display: flex;
