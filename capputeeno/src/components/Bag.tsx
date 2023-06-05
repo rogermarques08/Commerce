@@ -19,6 +19,8 @@ const ItemsOnBag = styled.span`
     width: 17px;
     height: 17px;
     border-radius: 100%;
+    font-weight: 500;
+    color: #fff;
     background-color: var(--exclude-color);
 `
 export default function Bag() {

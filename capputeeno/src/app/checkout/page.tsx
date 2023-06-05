@@ -3,6 +3,7 @@ import BackButton from "@/components/BackButton"
 import CheckoutCard from "@/components/CheckoutCart"
 import OrderSummary from "@/components/OrderSummary"
 import useLocalStorage from "@/hooks/useLocalStorage"
+import getTotal from "@/utils/getTotal"
 import styled from "styled-components"
 
 const CheckoutContainer = styled.section`
@@ -41,12 +42,13 @@ const CardsConainer = styled.section`
 
 export default function Checkout() {
     const { cart } = useLocalStorage('user-cart')
+    console.log('renderizou')
     return (
         <CheckoutContainer>
             <CardsConainer>
                 <BackButton />
                 <h1>SEU CARRINHO</h1>
-                <p>Total (X produtos) <span>R$00,00</span></p>
+                <p>Total ({cart.length} produtos) <span>R$ {getTotal(cart).toFixed(2)}</span></p>
                 {cart.map((product, index) => (
                     <CheckoutCard {...product} key={index} />
                 ))}

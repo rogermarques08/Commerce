@@ -1,3 +1,5 @@
+import useLocalStorage from "@/hooks/useLocalStorage"
+import getTotal from "@/utils/getTotal"
 import styled from "styled-components"
 import CheckoutBtn from "./CheckoutBtn"
 
@@ -50,13 +52,15 @@ const HelpContainer = styled.div`
 `
 
 export default function OrderSummary() {
+    const { cart } = useLocalStorage('user-cart')
+
     return (
         <OrderSummaryContainer>
             <div>
                 <SummaryTitle>RESUMO DO PEDIDO</SummaryTitle>
                 <PriceInfos>
                     <p>Subtotal de produtos</p>
-                    <p>R$ 00,00</p>
+                    <p>R$ {getTotal(cart).toFixed(2)}</p>
                 </PriceInfos>
                 <PriceInfos>
                     <p>Entrega</p>
@@ -65,7 +69,7 @@ export default function OrderSummary() {
                 <Span></Span>
                 <TotalPrice>
                     <h3>Total</h3>
-                    <h3>R$ 00,00</h3>
+                    <h3>R$ {(getTotal(cart) + 40).toFixed(2)}</h3>
                 </TotalPrice>
                 <CheckoutBtn />
             </div>

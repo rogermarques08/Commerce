@@ -8,6 +8,7 @@ const List = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     gap: 30px;
+    margin-bottom: 30px;
     
 `
 export function ProductList() {
