@@ -49,9 +49,13 @@ export default function Checkout() {
                 <BackButton />
                 <h1>SEU CARRINHO</h1>
                 <p>Total ({cart.length} produtos) <span>R$ {getTotal(cart).toFixed(2)}</span></p>
-                {cart.map((product, index) => (
-                    <CheckoutCard {...product} key={index} />
-                ))}
+                {!cart.length ? <h2>O carrinho está vazio</h2> :
+                    (
+                        cart.map((product, index) => (
+                            <CheckoutCard {...product} key={index} />
+                        ))
+                    )
+                }
             </CardsConainer>
             <OrderSummary />
         </CheckoutContainer>
