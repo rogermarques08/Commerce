@@ -24,7 +24,7 @@ export default function AddCartBtn(product: Product) {
     const {setLocalStorage} = useLocalStorage('user-cart')
     
     return (
-        <AddBtn onClick={() => setLocalStorage(product)}>
+        <AddBtn onClick={() => setLocalStorage(1,product)}>
             <BagIconWhite />
             Adicionar ao carrinho
         </AddBtn>

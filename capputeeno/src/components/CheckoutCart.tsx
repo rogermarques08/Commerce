@@ -1,4 +1,4 @@
-import { Product } from "@/data/Promises";
+import useLocalStorage, { CartItem } from "@/hooks/useLocalStorage";
 import Image from "next/image";
 import styled from "styled-components";
 import TrashIcon from "../icons/TrashIcon";
@@ -113,20 +113,26 @@ const CardInfo = styled.section`
     }
 `
 
-export default function CheckoutCard(product: Product) {
+export default function CheckoutCard(product: CartItem) {
+    const { setLocalStorage, removeItemFromLocalStorage } = useLocalStorage('user-cart')
+
     return (
         <CardConatiner>
-            <Image src={product.image_url} alt={product.name} width={256} height={211} style={{borderRadius: '8px 0 0 8px'}} />
+            <Image src={product.image_url} alt={product.name} width={256} height={211} style={{ borderRadius: '8px 0 0 8px' }} />
             <CardInfo>
                 <div>
                     <h2>{product.name}</h2>
-                    <button>
+                    <button onClick={() => removeItemFromLocalStorage(product.id)}>
                         <TrashIcon />
                     </button>
                 </div>
                 <p>{product.description}</p>
                 <div>
-                    <select name="quantity" id="quantity">
+                    <select
+                        name="quantity"
+                        id="quantity"
+                        value={product.quantity}
+                        onChange={(event) => setLocalStorage(Number(event.target.value), product)}>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -138,7 +144,7 @@ export default function CheckoutCard(product: Product) {
                         <option value="9">9</option>
                         <option value="10">10</option>
                     </select>
-                    <h3>R$ {(product.price_in_cents / 100).toFixed(2)}</h3>
+                    <h3>R$ {((product.price_in_cents / 100) * product.quantity).toFixed(2)}</h3>
                 </div>
             </CardInfo>
         </CardConatiner>

@@ -2,6 +2,10 @@ import { CheckoutContext } from "@/context/CheckoutContext";
 import { Product } from "@/data/Promises";
 import { useCallback, useContext, useEffect } from "react";
 
+export interface CartItem extends Product {
+  quantity: number
+}
+
 export default function useLocalStorage(key: string) {
   const { cart, setCart } = useContext(CheckoutContext);
   const storage =
@@ -25,21 +29,43 @@ export default function useLocalStorage(key: string) {
     }
   }, [setCart, getLocalStorage]);
 
-  const setLocalStorage = (value: Product) => {
+  const setLocalStorage = (quantity: number,value: Product) => {
     if (typeof window === 'undefined') return;
 
+    const cartItem:CartItem = {...value, quantity}
+    
     const cart = getLocalStorage();
+    
     if (storage && cart) {
-      const newCart = [...cart, value];
+      const isOnCart = cart.some((product: CartItem) => product.id === value.id)
+
+      if (isOnCart) {
+        const newCart = cart.find((product: CartItem) => product.id === value.id)
+        newCart.quantity = quantity
+
+        setCart(cart);
+        return localStorage.setItem(key, JSON.stringify(cart));
+      }
+
+      const newCart = [...cart, cartItem];
       setCart(newCart);
       return localStorage.setItem(key, JSON.stringify(newCart));
     }
-    setCart([value]);
-    return localStorage.setItem(key, JSON.stringify([value]));
+    
+    setCart([cartItem]);
+    return localStorage.setItem(key, JSON.stringify([cartItem]));
   };
+
+  const removeItemFromLocalStorage = (id:string) => {
+    const filteredCart = cart.filter((product) => product.id !== id)
+
+    setCart(filteredCart)
+    localStorage.setItem('user-cart',JSON.stringify(filteredCart))
+  }
 
   return {
     cart,
-    setLocalStorage
+    setLocalStorage,
+    removeItemFromLocalStorage
   };
 }

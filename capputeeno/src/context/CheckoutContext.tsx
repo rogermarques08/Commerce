@@ -1,6 +1,6 @@
 'use client'
 
-import { Product } from "@/data/Promises";
+import { CartItem } from "@/hooks/useLocalStorage";
 import { ReactNode, createContext, useState } from "react";
 
 interface Children {
@@ -8,12 +8,12 @@ interface Children {
 }
 
 export const CheckoutContext = createContext({
-    cart: [] as Product[],
-    setCart: (product: Product[]) => { }
+    cart: [] as CartItem[],
+    setCart: (product: CartItem[]) => { }
 })
 
 export default function CheckoutProvider({ children }: Children) {
-    const [cart, setCart] = useState<Product[]>([]);
+    const [cart, setCart] = useState<CartItem[]>([]);
 
     return (
         <CheckoutContext.Provider

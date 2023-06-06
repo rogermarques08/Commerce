@@ -31,7 +31,7 @@ export default function Bag() {
             <Link href='/checkout'>
                 <BagIcon />
             </Link>
-            <ItemsOnBag>{cart?.length || 0}</ItemsOnBag>
+            <ItemsOnBag>{cart.reduce((acc, curr) => acc + curr.quantity, 0)|| 0}</ItemsOnBag>
         </BagButton>
     )
 }
