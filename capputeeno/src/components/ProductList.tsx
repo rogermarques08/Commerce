@@ -1,7 +1,8 @@
 import useProducts from "@/hooks/useProducts"
 import Link from "next/link"
+import React from "react"
 import styled from "styled-components"
-import { ProductCard } from "./ProductCard"
+import ProductCard from "./ProductCard"
 
 const List = styled.div`
     display: flex;
@@ -27,3 +28,5 @@ export function ProductList() {
         </List>
     )
 }
+
+export default React.memo(ProductList)

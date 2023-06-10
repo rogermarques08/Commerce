@@ -1,5 +1,6 @@
 'use client'
 import Image from "next/image";
+import React from "react";
 import styled from "styled-components";
 
 export interface Product {
@@ -70,7 +71,7 @@ const Card = styled.div`
     }
 `
 
-export function ProductCard(product : Product){
+function ProductCard(product : Product){
 
     return(
         <Card>
@@ -82,4 +83,6 @@ export function ProductCard(product : Product){
             </div>
         </Card>
     )
-}
+} 
+
+export default React.memo(ProductCard)

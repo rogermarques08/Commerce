@@ -42,7 +42,7 @@ const CardsConainer = styled.section`
 
 export default function Checkout() {
     const { cart } = useLocalStorage('user-cart')
-    console.log('renderizou')
+    
     return (
         <CheckoutContainer>
             <CardsConainer>

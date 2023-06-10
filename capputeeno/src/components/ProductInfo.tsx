@@ -40,6 +40,7 @@ const InfoContainer = styled.div`
 `
 
 export default function ProductInfo (product: Product) {
+
     return(
         <InfoContainer>
             <h3>{product.category}</h3>

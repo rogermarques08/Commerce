@@ -16,7 +16,7 @@ export default function useLocalStorage(key: string) {
       return JSON.parse(storage);
     }
 
-    return console.log('Informe uma chave válida');
+    return ;
   }, [storage]);
 
   useEffect(() => {

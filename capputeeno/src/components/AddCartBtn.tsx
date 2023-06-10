@@ -21,10 +21,11 @@ const AddBtn = styled.button`
     border-radius: 4px;
 `
 export default function AddCartBtn(product: Product) {
-    const {setLocalStorage} = useLocalStorage('user-cart')
+    const {setLocalStorage, cart} = useLocalStorage('user-cart')
     
     return (
-        <AddBtn onClick={() => setLocalStorage(1,product)}>
+        <AddBtn 
+        onClick={() => setLocalStorage(1,product)}>
             <BagIconWhite />
             Adicionar ao carrinho
         </AddBtn>
