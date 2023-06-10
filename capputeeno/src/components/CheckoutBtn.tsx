@@ -1,4 +1,7 @@
-import styled from "styled-components"
+import useLocalStorage from "@/hooks/useLocalStorage";
+import getTotal from "@/utils/getTotal";
+import { useRouter } from "next/navigation";
+import styled from "styled-components";
 
 const CheckoutButton = styled.button` 
     cursor: pointer;
@@ -15,7 +18,20 @@ const CheckoutButton = styled.button`
 `
 
 export default function CheckoutBtn() {
-    return(
-        <CheckoutButton>Finalizar Compra</CheckoutButton>
+    const { clearLocalStorage, cart } = useLocalStorage('user-cart')
+    const history = useRouter()
+
+    const finishOrder = () => {
+        window.alert(`Compra no valor de R$${(getTotal(cart) + 40).toFixed(2)} realizada com succeso!!`)
+
+        history.push('/')
+        
+        setTimeout(() => {
+            clearLocalStorage()
+        }, 700)
+    }
+
+    return (
+        <CheckoutButton onClick={finishOrder}>Finalizar Compra</CheckoutButton>
     )
 }

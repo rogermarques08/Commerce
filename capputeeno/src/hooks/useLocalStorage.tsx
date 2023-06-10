@@ -63,9 +63,15 @@ export default function useLocalStorage(key: string) {
     localStorage.setItem('user-cart',JSON.stringify(filteredCart))
   }
 
+  const clearLocalStorage = () => {
+    localStorage.removeItem('user-cart')
+    setCart([])
+  }
+
   return {
     cart,
     setLocalStorage,
-    removeItemFromLocalStorage
+    removeItemFromLocalStorage,
+    clearLocalStorage
   };
 }
